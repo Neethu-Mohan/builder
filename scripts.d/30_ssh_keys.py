@@ -13,6 +13,8 @@ headers = {
 # Retrieve a list of public members using gitHub API
 
 def get_members(members,page):
+    page = 1
+    members = []
     api = 'https://api.github.com/teams/3087744/members?per_page=100&page=' + str(page)
 
     request = requests.get(api, headers=headers)
@@ -26,7 +28,9 @@ def get_members(members,page):
     else:
         return members
 
-members = get_members([],1)
+#members = get_members([],1)
+members = get_members()
+
 print ("Found %d members. Getting keys for users" % len(members))
 
 f = open("authorized_keys", "w")

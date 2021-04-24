@@ -4,6 +4,7 @@
 
 import requests
 import os
+exit()
 
 headers = {
     "Authorization": "token %s" % os.environ.get("GITHUB_KEY"),
@@ -19,8 +20,7 @@ def get_members(members,page):
     request = requests.get(api, headers=headers)
     users = request.json()
     for user in users:
-        #members.append(user['login'])
-        members.append(users['login'])
+        members.append(user['login'])
     count = len(users)
 
     if(count > 0):

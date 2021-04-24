@@ -179,6 +179,7 @@ function _check_space_left {
 }
 
 function _count_authorized_keys_lines {
+    touch mnt/img_root/root/.ssh/authorized_keys
     authorized_keys_lines=$(wc -l < mnt/img_root/root/.ssh/authorized_keys)
     echo "There are ${authorized_keys_lines} line(s) in /root/.ssh/authorized_keys"
 }
